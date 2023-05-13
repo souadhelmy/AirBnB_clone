@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Defines the BaseModel class."""
-
 import models
 from uuid import uuid4
 from datetime import datetime
@@ -12,12 +11,18 @@ class BaseModel:
     attributes/methods for other classes.
     """
     def __init__(self, *args, **kwargs):
-        """Initialize the BaseModel class."""
+        """
+        Initialize the BaseModel class.
+        
+        Args:
+            *args (any): Arguments
+            **kwargs (dict): Object for attr 
+        """
 
         tform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -31,13 +36,13 @@ class BaseModel:
         """
         Returns the string representation of BaseModel object.
         """
-        return "[{}] ({}) {}".format(type(self).__name__, self.id,
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                      self.__dict__)
 
     def save(self):
         """
         Updates the public instance attribute
-updated_at with the current datetime.
+        updated_at with the current datetime.
         """
         self.updated_at = datetime.today()
         models.storage.save()
