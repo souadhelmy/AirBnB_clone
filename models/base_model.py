@@ -8,8 +8,9 @@ from datetime import datetime
 
 class BaseModel:
     """
-     A class that defines all common attributes/methods for other classes.
-    """ 
+    A class that defines all common
+    attributes/methods for other classes.
+    """
     def __init__(self, *args, **kwargs):
         """Initialize the BaseModel class."""
 
@@ -35,7 +36,8 @@ class BaseModel:
 
     def save(self):
         """
-        Updates the public instance attribute updated_at with the current datetime.
+        Updates the public instance attribute
+updated_at with the current datetime.
         """
         self.updated_at = datetime.today()
         models.storage.save()
