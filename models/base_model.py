@@ -13,10 +13,10 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """
         Initialize the BaseModel class.
-        
+
         Args:
             *args (any): Arguments
-            **kwargs (dict): Object for attr 
+            **kwargs (dict): Object for attr
         """
 
         tform = "%Y-%m-%dT%H:%M:%S.%f"
