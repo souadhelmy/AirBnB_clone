@@ -6,7 +6,11 @@ from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """Represent a city class attributes ."""
+    """Represent a city class attributes 
+    
+        Attributes:
+        name(str): amenity name
+    """
 
 
 
