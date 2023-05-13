@@ -32,10 +32,11 @@ def parse(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """Defines the HolbertonBnB command interpreter.
+    """
+    This module defines the command interpreter for HolbertonBnB.
 
     Attributes:
-        prompt (str): The command prompt.
+    prompt (str): The command prompt string.
     """
 
     prompt = "(hbnb) "
@@ -50,11 +51,12 @@ class HBNBCommand(cmd.Cmd):
     }
 
     def emptyline(self):
-        """Do nothing upon receiving an empty line."""
+        """Do nothing when receiving an empty line."""
         pass
 
     def default(self, arg):
-        """Default behavior for cmd module when input is invalid"""
+        """The default behavior of the cmd module when the
+        input is invalid."""
         argdict = {
             "all": self.do_all,
             "show": self.do_show,
@@ -75,17 +77,18 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program."""
+        """Exite console command."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the program."""
+        """Exit console when EOF"""
         print("")
         return True
 
     def do_create(self, arg):
         """Usage: create <class>
-        Create a new class instance and print its id.
+        This command creates a new instance of a specified
+        class and displays its unique identifier.
         """
         argl = parse(arg)
         if len(argl) == 0:
@@ -97,8 +100,9 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, arg):
-        """Usage: show <class> <id> or <class>.show(<id>)
-        Display the string representation of a class instance of a given id.
+        """Usage: To display the string representation of a class
+        instance with a specific ID, use the "show" command in one of the
+        following formats: "show <class> <id>" or "<class>.show(<id>)".
         """
         argl = parse(arg)
         objdict = storage.all()
@@ -114,8 +118,10 @@ class HBNBCommand(cmd.Cmd):
             print(objdict["{}.{}".format(argl[0], argl[1])])
 
     def do_destroy(self, arg):
-        """Usage: destroy <class> <id> or <class>.destroy(<id>)
-        Delete a class instance of a given id."""
+        """Usage:Delete an instance of a class identified by a given
+        id. This can be done using the "destroy" command with the
+        class name and id as arguments, or by calling the
+        "destroy" method of the class with the id as argument."""
         argl = parse(arg)
         objdict = storage.all()
         if len(argl) == 0:
@@ -157,11 +163,21 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def do_update(self, arg):
-        """Usage: update <class> <id> <attribute_name> <attribute_value> or
-       <class>.update(<id>, <attribute_name>, <attribute_value>) or
-       <class>.update(<id>, <dictionary>)
-        Update a class instance of a given id by adding or updating
-        a given attribute key/value pair or dictionary."""
+        """
+        Usage:
+             - You can use it with the syntax "update <class> <id>
+             <attribute_name> <attribute_value>" to update a
+             specific attribute of a class instance identified by its ID.
+
+             - Alternatively, you can use it with the syntax "<class>
+              .update(<id>, <attribute_name>, <attribute_value>)"
+              to achieve the same result.
+
+             - Finally, you can also use the command "<class>
+               .update(<id>, <dictionary>)" to update multiple
+               attributes at once,
+               using a dictionary to specify the new values.
+        """
         argl = parse(arg)
         objdict = storage.all()
 
