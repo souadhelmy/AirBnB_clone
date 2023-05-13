@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 """Contain tests for the city module."""
-
 import unittest
 from models.base_model import BaseModel
 from models.city import City
 
 
-
 class TestCity(unittest.TestCase):
-      """Test the city class."""
+    """Test the city class."""
 
-def test_default_attributes(self):
+    def test_default_attributes(self):
         """Test for attributes."""
 
         city = City()

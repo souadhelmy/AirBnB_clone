@@ -2,11 +2,9 @@
 """
 Contain tests for the review module.
 """
-
 import unittest
 from models.base_model import BaseModel
 from models.review import Review
-
 
 
 class TestReview(unittest.TestCase):
@@ -14,7 +12,6 @@ class TestReview(unittest.TestCase):
 
     def test_default_attributes(self):
         """Test for attributes."""
-
 
         review = Review()
         self.assertEqual(review.place_id, "")

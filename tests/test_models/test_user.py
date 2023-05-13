@@ -2,7 +2,6 @@
 """
 Contain tests for the user module.
 """
-
 import unittest
 from models.user import User
 
@@ -10,10 +9,8 @@ from models.user import User
 class TestUser(unittest.TestCase):
     """Test the user class."""
 
-
     def test_default_attributes(self):
         """Test for attributes."""
-
 
         user = User()
         self.assertEqual(user.username, "")

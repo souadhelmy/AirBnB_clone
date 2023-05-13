@@ -10,6 +10,7 @@ from console import HBNBCommand
 from io import StringIO
 from unittest.mock import patch
 
+
 class TestConsole(unittest.TestCase):
     """this will test the console"""
 
@@ -30,7 +31,7 @@ class TestConsole(unittest.TestCase):
         except Exception:
             pass
 
-            def test_emptyline(self):
+    def test_emptyline(self):
         """Test empty line input"""
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("   ")
@@ -137,7 +138,6 @@ class TestConsole(unittest.TestCase):
             self.consol.onecmd("update User " + my_id + " Name")
             self.assertEqual(
                 "** value missing **", f.getvalue())
-                        
 
             if __name__ == "__main__":
                 unittest.main()
