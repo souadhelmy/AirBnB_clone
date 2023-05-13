@@ -13,6 +13,7 @@ from models.place import Place
 from models.review import Review
 from shlex import split
 
+
 class HBNBCommand(cmd.Cmd):
     """Command interpreter class."""
 
@@ -57,7 +58,8 @@ class HBNBCommand(cmd.Cmd):
         print(new_instance.id)
 
     def do_show(self, args):
-        """Prints the string representation of an instance based on the class name and id."""
+        """Prints the string representation
+of an instance based on the class name and id."""
 
         if not args:
             print("** class name missing **")
@@ -92,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
         arg_list = args.split()
         class_name = arg_list[0]
 
-        if class_name not in self.classes :
+        if class_name not in self.classes:
             print("** class doesn't exist **")
             return
 
@@ -110,7 +112,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, args):
-        """Prints all string representation of all instances based or not on the class name.
+        """Prints all string representation
+of all instances based or not on the class name.
         """
         objects = models.storage.all()
 
@@ -168,4 +171,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    
