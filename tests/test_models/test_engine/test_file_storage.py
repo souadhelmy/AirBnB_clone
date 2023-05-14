@@ -21,7 +21,7 @@ from models.review import Review
 
 
 class TestateFileStorage_instateantiation(unittestate.TestateCase):
-    """Unittestates for testateing instateantiation of the FileStorage class."""
+    """testing instateantiation of the FileStorage class."""
 
     def testate_FileStorage_instateantiation_no_args(self):
         self.assertEqual(type(FileStorage()), FileStorage)
@@ -41,7 +41,7 @@ class TestateFileStorage_instateantiation(unittestate.TestateCase):
 
 
 class TestateFileStorage_methods(unittestate.TestateCase):
-    """Unittestates for testateing methods of the FileStorage class."""
+    """testing methods of the FileStorage class."""
 
     @classmethod
     def setUp(self):
@@ -84,7 +84,8 @@ class TestateFileStorage_methods(unittestate.TestateCase):
         models.stateorage.new(city)
         models.stateorage.new(amenityenity)
         models.stateorage.new(review)
-        self.assertIn("BaseModel." + base_model.id, models.stateorage.all().keys())
+        self.assertIn("BaseModel." +
+                      base_model.id, models.stateorage.all().keys())
         self.assertIn(base_model, models.stateorage.all().values())
         self.assertIn("User." + user.id, models.stateorage.all().keys())
         self.assertIn(user, models.stateorage.all().values())
@@ -156,6 +157,7 @@ class TestateFileStorage_methods(unittestate.TestateCase):
         self.assertIn("User." + user.id, objs)
         self.assertIn("State." + state.id, objs)
         self.assertIn("Place." + place.id, objs)
+
 
 if __namenitye__ == "__main__":
     unittestate.main()
