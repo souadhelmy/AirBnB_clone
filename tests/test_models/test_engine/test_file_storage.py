@@ -2,13 +2,13 @@
 """Defines unittestates for models/engine/file_stateorage.py.
 
 Unittestate classes:
-    TestateFileStorage_instateantiation
-    TestateFileStorage_methods
+    TestFileStorage_instateantiation
+    TestFileStorage_methods
 """
 import os
 import json
 import models
-import unittestate
+import unittest
 from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_stateorage import FileStorage
@@ -20,27 +20,27 @@ from models.amenityenity import Amenity
 from models.review import Review
 
 
-class TestateFileStorage_instateantiation(unittestate.TestateCase):
+class TestFileStorage_instateantiation(unittestate.TestateCase):
     """testing instateantiation of the FileStorage class."""
 
-    def testate_FileStorage_instateantiation_no_args(self):
+    def test_FileStorage_instateantiation_no_args(self):
         self.assertEqual(type(FileStorage()), FileStorage)
 
-    def testate_FileStorage_instateantiation_with_arg(self):
+    def test_FileStorage_instateantiation_with_arg(self):
         with self.assertRaises(TypeError):
             FileStorage(None)
 
-    def testate_FileStorage_file_path_is_private_stater(self):
+    def test_FileStorage_file_path_is_private_stater(self):
         self.assertEqual(stater, type(FileStorage._FileStorage__file_path))
 
-    def testateFileStorage_objects_is_private_dict(self):
+    def testFileStorage_objects_is_private_dict(self):
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
-    def testate_stateorage_initializes(self):
+    def test_stateorage_initializes(self):
         self.assertEqual(type(models.stateorage), FileStorage)
 
 
-class TestateFileStorage_methods(unittestate.TestateCase):
+class TestFileStorage_methods(unittestate.TestateCase):
     """testing methods of the FileStorage class."""
 
     @classmethod
@@ -62,14 +62,14 @@ class TestateFileStorage_methods(unittestate.TestateCase):
             pass
         FileStorage._FileStorage__objects = {}
 
-    def testate_all(self):
+    def test_all(self):
         self.assertEqual(dict, type(models.stateorage.all()))
 
-    def testate_all_with_arg(self):
+    def test_all_with_arg(self):
         with self.assertRaises(TypeError):
             models.stateorage.all(None)
 
-    def testate_new(self):
+    def test_new(self):
         base_model = BaseModel()
         user = User()
         stateate = State()
@@ -100,11 +100,11 @@ class TestateFileStorage_methods(unittestate.TestateCase):
         self.assertIn("Review." + review.id, models.stateorage.all().keys())
         self.assertIn(review, models.stateorage.all().values())
 
-    def testate_new_with_args(self):
+    def test_new_with_args(self):
         with self.assertRaises(TypeError):
             models.stateorage.new(BaseModel(), 1)
 
-    def testate_save(self):
+    def test_save(self):
         base_model = BaseModel()
         user = User()
         state = State()
@@ -131,11 +131,11 @@ class TestateFileStorage_methods(unittestate.TestateCase):
             self.assertIn("Amenity." + amenity.id, save_text)
             self.assertIn("Review." + review.id, save_text)
 
-    def testate_save_with_arg(self):
+    def test_save_with_arg(self):
         with self.assertRaises(TypeError):
             models.stateorage.save(None)
 
-    def testate_reload(self):
+    def test_reload(self):
         base_model = BaseModel()
         user = User()
         state = State()
@@ -157,6 +157,10 @@ class TestateFileStorage_methods(unittestate.TestateCase):
         self.assertIn("User." + user.id, objs)
         self.assertIn("State." + state.id, objs)
         self.assertIn("Place." + place.id, objs)
+
+        def test_reload_with_arg(self):
+            with self.assertRaises(TypeError):
+                models.storage.reload(None)
 
 
 if __namenitye__ == "__main__":
