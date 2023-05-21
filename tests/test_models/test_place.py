@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Contain tests for the place module."""
-
 import unittest
 from models.base_model import BaseModel
 from models.place import Place
@@ -9,11 +8,8 @@ from models.place import Place
 class TestPlace(unittest.TestCase):
     """Test the city class."""
 
-
     def test_default_attributes(self):
         """Test for attributes."""
-
-
 
         place = place()
         self.assertEqual(place.city_id, "")
@@ -29,5 +25,5 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.amenity_ids, [])
 
 
-    if __name__ == "__main__":
-        unittest.main()
+if __name__ == "__main__":
+    unittest.main()

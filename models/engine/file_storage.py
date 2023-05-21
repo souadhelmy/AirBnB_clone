@@ -2,7 +2,6 @@
 """
 Contains the FileStorage class model for AirBnB.
 """
-
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -11,6 +10,7 @@ from models.amenity import Amenity
 from models.city import City
 from models.place import Place
 from models.review import Review
+
 
 class FileStorage:
     """This class serializes instances to a JSON file and
@@ -21,9 +21,9 @@ class FileStorage:
 
     def all(self):
         """Returns the dictionary __objects"""
-        
+
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id."""
 
